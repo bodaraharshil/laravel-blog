@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello/{id}', function ($id) {
+    return view('hello',["id" => $id]);
+});
+
+/**youtube**/
+Route::get('/youtube/{id}',"Youtube@index");
+
+/***mobiles***/
+Route::view("/mobile","Mobile");
+// Route::get('/mobile', function () {
+//     return view('Mobile');
+// });
+
+Route::redirect('/here',"/");

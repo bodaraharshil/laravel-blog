@@ -32,3 +32,7 @@ Route::view("/mobile","Mobile");
 // });
 
 Route::redirect('/here',"/");
+
+/***submit form****/
+Route::view('/user',"User");
+Route::post('/userdata',"Users@submit");

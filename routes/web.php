@@ -36,3 +36,5 @@ Route::redirect('/here',"/");
 /***submit form****/
 Route::view('/user',"User")->middleware('indian');
 Route::post('/userdata',"Users@submit");
+
+Route::get('db','Users@dbCheck');

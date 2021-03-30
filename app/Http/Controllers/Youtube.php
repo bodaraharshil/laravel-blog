@@ -6,8 +6,15 @@ use Illuminate\Http\Request;
 
 class Youtube extends Controller
 {
-    public function index($id)
+    // public function index($id)
+    // {
+    //     return ["id"=>$id,"name"=>"HB_DEVELOPER"];
+    // }
+    public function index(Request $req)
     {
-        return ["id"=>$id,"name"=>"HB_DEVELOPER"];
+        print_r($req->fullurl());
+        print_r($req->url());
+        print_r($req->input());
+        print_r($req->method());
     }
 }

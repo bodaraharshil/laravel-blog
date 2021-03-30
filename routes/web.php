@@ -22,7 +22,8 @@ Route::get('/hello/{id}', function ($id) {
 });
 
 /**youtube**/
-Route::get('/youtube/{id}',"Youtube@index");
+// Route::get('/youtube/{id}',"Youtube@index");
+Route::get('/youtube',"Youtube@index");
 
 /***mobiles***/
 Route::view("/mobile","Mobile");

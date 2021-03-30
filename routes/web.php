@@ -34,5 +34,5 @@ Route::view("/mobile","Mobile");
 Route::redirect('/here',"/");
 
 /***submit form****/
-Route::view('/user',"User");
+Route::view('/user',"User")->middleware('indian');
 Route::post('/userdata',"Users@submit");

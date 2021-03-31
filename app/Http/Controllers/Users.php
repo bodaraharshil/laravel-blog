@@ -53,11 +53,16 @@ class Users extends Controller
             // return DB::table('users')
             // ->min('id');
 
-            return DB::table('users')
-            ->avg('id');
+            // return DB::table('users')
+            // ->avg('id');
 
             // return DB::select("select * from users");
-    //     $users = DB::select("select * from migrations");
-    //     print_r($users);
+            // $users = DB::select("select * from migrations");
+            // print_r($users);
+            return  DB::table('users')
+            ->Select('companys.company','users.email')
+            ->join('companys','users.id','user_id')
+            ->where('companys.company','global-1')
+            ->get();
     }
 }

@@ -38,3 +38,6 @@ Route::view('/user',"User")->middleware('indian');
 Route::post('/userdata',"Users@submit");
 
 Route::get('db','Users@dbCheck');
+
+/***pagination company****/
+Route::get('/list','Companies@list');

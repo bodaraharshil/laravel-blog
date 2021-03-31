@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Company;
 
 class Users extends Controller
 {
@@ -59,10 +61,14 @@ class Users extends Controller
             // return DB::select("select * from users");
             // $users = DB::select("select * from migrations");
             // print_r($users);
-            return  DB::table('users')
-            ->Select('companys.company','users.email')
-            ->join('companys','users.id','user_id')
-            ->where('companys.company','global-1')
-            ->get();
+
+            // return  DB::table('users')
+            // ->Select('companys.company','users.email')
+            // ->join('companys','users.id','user_id')
+            // ->where('companys.company','global-1')
+            // ->get();
+            
+            return Company::all();
+
     }
 }

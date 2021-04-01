@@ -9,7 +9,7 @@
         }
     </style>
     <body>
-       <div>
+       <!-- <div>
     @foreach($data as $item)
     <li>{{$item->id}}</li>
     <li>{{$item->company}}</li>
@@ -19,6 +19,18 @@
 
         <div>{{$data->links()}}</div>
 
-        <?php print_r($data); ?>
+        <?php print_r($data); ?> -->
+        @extends('layout');
+        @section('title','company page')
+        
+        @section('header')
+        @parent
+        @endsection
+
+        @section('content','company page Hello world')
+
+        @section('footer')
+        @parent
+        @endsection
     </body>
 </html>

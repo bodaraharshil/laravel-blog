@@ -1,20 +1,31 @@
 <html>
     <head>
-        <title>Form tutorial </title>
     </head>
     <body>
-        <div>
+        <!-- <div>
             @foreach($data as $i)
                 <li>{!!$i!!}</li>
             @endforeach
-        </div>
-        <?php print_r($data) ?>
-        <div>{{$data['name']}}<div>
+        </div> -->
+        <!-- <?php print_r($data) ?> -->
+        <!-- <div>{{$data['name']}}<div>
             @if($data['name'] ==  'test@gmail.com' )
             success name 
             @else 
             not success
-            @endif
+            @endif -->
+            @extends('layout');
+            @section('title','User page')
+            
+            @section('header')
+            @parent
+            @endsection
+
+            @section('content','User page Hello world')
+
+            @section('footer')
+            @parent
+            @endsection
         <!-- <div>
             <ul>
                 @foreach($errors->all() as $e)

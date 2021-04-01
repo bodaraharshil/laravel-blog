@@ -9,8 +9,13 @@ use App\Company;
 
 class Users extends Controller
 {
-    public function submit(Request $req)
+    public function index()
     {
+        $data = [
+            'name'=>'test@gmail.com',
+            'head'=>'<h1>Hello Test</h1>'
+        ];
+        return view('User',['data' => $data]);
         // $req->validate([
         //     "user"=>"required",
         //     "phone"=>"required || min:8",
@@ -68,7 +73,7 @@ class Users extends Controller
             // ->where('companys.company','global-1')
             // ->get();
             
-            return Company::all();
+            // return Company::all();
 
     }
 }

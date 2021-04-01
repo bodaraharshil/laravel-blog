@@ -34,8 +34,11 @@ Route::view("/mobile","Mobile");
 Route::redirect('/here',"/");
 
 /***submit form****/
-Route::view('/user',"User")->middleware('indian');
-Route::post('/userdata',"Users@submit");
+// Route::view('/user',"User")->middleware('indian');
+// Route::post('/userdata',"Users@submit");
+
+Route::get('/user',"Users@index");
+
 
 Route::get('db','Users@dbCheck');
 

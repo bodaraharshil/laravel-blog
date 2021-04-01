@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{lang}', function ($lang) {
+    App::setLocale($lang);
     return view('welcome');
 });
 

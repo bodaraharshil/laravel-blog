@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{lang}', function ($lang) {
-    App::setLocale($lang);
+// Route::get('/{lang}', function ($lang) {
+//     App::setLocale($lang);
+//     return view('welcome');
+// });
+
+Route::get('/', function ($lang) {
     return view('welcome');
 });
 
@@ -37,6 +41,9 @@ Route::redirect('/here',"/");
 /***submit form****/
 // Route::view('/user',"User")->middleware('indian');
 // Route::post('/userdata',"Users@submit");
+
+Route::post('/upload',"Users@index");
+Route::view('/form',"User");
 
 Route::get('/user',"Users@index");
 

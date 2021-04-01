@@ -1,20 +1,25 @@
 <html>
     <head>
+        <title>Upload file</title>
     </head>
     <body>
-        <!-- <div>
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="user_image">
+        @csrf
+        <button type="submit"> Upload file</button>
+    </form>
+    <div>
             @foreach($data as $i)
                 <li>{!!$i!!}</li>
             @endforeach
         </div> -->
-        <!-- <?php print_r($data) ?> -->
         <!-- <div>{{$data['name']}}<div>
             @if($data['name'] ==  'test@gmail.com' )
             success name 
             @else 
             not success
             @endif -->
-            @extends('layout');
+            <!-- @extends('layout');
             @section('title','User page')
             
             @section('header')
@@ -25,7 +30,8 @@
 
             @section('footer')
             @parent
-            @endsection
+            @endsection -->
+
         <!-- <div>
             <ul>
                 @foreach($errors->all() as $e)
@@ -55,9 +61,9 @@
             @enderror
             <button type="submit">Submit</button>
         </form>-->
-    </body> 
-    <script>
+    <!-- <script>
         var data = @json($data);
         console.log(data)
-    </script>
+    </script> -->
+    <body>
 </html>

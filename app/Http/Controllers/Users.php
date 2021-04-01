@@ -9,13 +9,14 @@ use App\Company;
 
 class Users extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-        $data = [
-            'name'=>'test@gmail.com',
-            'head'=>'<h1>Hello Test</h1>'
-        ];
-        return view('User',['data' => $data]);
+        echo $req->file('user_image')->store('public');
+        // $data = [
+        //     'name'=>'test@gmail.com',
+        //     'head'=>'<h1>Hello Test</h1>'
+        // ];
+        // return view('User',['data' => $data]);
         // $req->validate([
         //     "user"=>"required",
         //     "phone"=>"required || min:8",
@@ -74,6 +75,5 @@ class Users extends Controller
             // ->get();
             
             // return Company::all();
-
     }
 }

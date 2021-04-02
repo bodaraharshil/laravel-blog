@@ -56,3 +56,6 @@ Route::get('/list','Companies@list');
 /***Insert a data****/
 Route::view('companyform','companyform');
 Route::post('formsubmit','Companies@save');
+
+Route::view('companyupdate','companyform');
+Route::post('formupdate','Companies@update');

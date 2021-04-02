@@ -22,4 +22,16 @@ class Companies extends Controller
         $company1->user_id=$req->user_id;
         $company1->save();
     }
+    public function update(Request $req)
+    {
+        print_r($req->input());
+        echo Company ::where('id',$req->user_id)
+        ->update([
+            'company'=>$req->company
+        ]);
+        // $company1 = new Company;
+        // $company1->company=$req->company;
+        // $company1->user_id=$req->user_id;
+        // $company1->save();
+    }
 }

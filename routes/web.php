@@ -64,3 +64,5 @@ Route::post('formupdate','Companies@update');
 
 Route::view('companydelete','companyform');
 Route::post('formdelete','Companies@delete');
+
+Route::get('/pdf','PdfMaker@gen');

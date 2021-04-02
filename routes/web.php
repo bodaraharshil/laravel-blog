@@ -59,3 +59,6 @@ Route::post('formsubmit','Companies@save');
 
 Route::view('companyupdate','companyform');
 Route::post('formupdate','Companies@update');
+
+Route::view('companydelete','companyform');
+Route::post('formdelete','Companies@delete');

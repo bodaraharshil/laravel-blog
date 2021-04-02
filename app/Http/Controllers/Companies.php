@@ -29,9 +29,18 @@ class Companies extends Controller
         ->update([
             'company'=>$req->company
         ]);
-        // $company1 = new Company;
+        // $company1 =  Company::find(user_id)
         // $company1->company=$req->company;
         // $company1->user_id=$req->user_id;
         // $company1->save();
+    }
+
+    public function delete(Request $req)
+    {
+        print_r($req->input());
+        // $cmp = Company::find($req->id);
+        // $cmp->delete();
+
+        $cmp = Company::destroy([4,5]);
     }
 }

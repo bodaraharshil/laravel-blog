@@ -8,6 +8,7 @@ class User extends Model
 {
     function myCmp()
     {
-        return $this->hasOne('App\Company','user_id','id');
+        // return $this->hasOne('App\Company','user_id','id');
+        return $this->hasMany('App\Company');
     }
 }

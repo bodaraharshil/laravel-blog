@@ -11,7 +11,8 @@ class Users extends Controller
 {
     public function index(Request $req)
     {
-        echo $req->file('user_image')->store('public');
+        // echo $req->file('user_image')->store('public');
+        return User::find(2)->myCmp;
         // $data = [
         //     'name'=>'test@gmail.com',
         //     'head'=>'<h1>Hello Test</h1>'

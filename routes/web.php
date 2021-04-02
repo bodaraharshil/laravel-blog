@@ -26,6 +26,8 @@ Route::get('/hello/{id}', function ($id) {
     return view('hello',["id" => $id]);
 });
 
+Route::get('/useronetone',"Users@index");
+
 /**youtube**/
 // Route::get('/youtube/{id}',"Youtube@index");
 Route::get('/youtube',"Youtube@index");

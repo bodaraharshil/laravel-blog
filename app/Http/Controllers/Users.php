@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Company;
+use Excel;
+use Maatwebsite\Excel\Concerns\FromCollection;
 
 class Users extends Controller
 {
@@ -27,7 +29,10 @@ class Users extends Controller
         // $req->session()->flash('data','data has been submitted');
         // return redirect("/");
     }
-
+    public function exportdata()
+    {   
+        return Excel::download(new DataExport , 'users.xlsx');
+    }
     public function dbCheck()
     {
             // return DB::table('users')
@@ -76,5 +81,12 @@ class Users extends Controller
             // ->get();
             
             // return Company::all();
+    }
+}
+
+class DataExport implements FromCollection{
+    function collection()
+    {
+        return User::all();
     }
 }

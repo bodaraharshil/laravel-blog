@@ -20,16 +20,16 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function ($lang) {
     Route::get('/', function () {
-    // return view('welcome');
+    return view('welcome');
 
-    $to_name="harshil bodara";
-    $to_email='developer.harshilbodara@gmail.com';
-    $data = array('name'=>"peter",'body'=>"Testing main task");
-    Mail::send('mail',$data,function($message) use ($to_name,$to_email){
-        $message->to($to_email)
-        ->subject('we testing mail');
-    });
-    echo "mail send successfuly";
+    // $to_name="harshil bodara";
+    // $to_email='developer.harshilbodara@gmail.com';
+    // $data = array('name'=>"peter",'body'=>"Testing main task");
+    // Mail::send('mail',$data,function($message) use ($to_name,$to_email){
+    //     $message->to($to_email)
+    //     ->subject('we testing mail');
+    // });
+    // echo "mail send successfuly";
 });
 
 Route::get('/hello/{id}', function ($id) {
@@ -76,3 +76,5 @@ Route::view('companydelete','companyform');
 Route::post('formdelete','Companies@delete');
 
 Route::get('/pdf','PdfMaker@gen');
+
+Route::get('/exportdata','Users@exportdata');

@@ -11,6 +11,12 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 
 class Users extends Controller
 {
+
+    function list()
+    {
+        $userdata =  User::all();
+        return response()->json(["message"=>"get data successfuly","data" => $userdata]);
+    }
     public function index(Request $req)
     {
         // echo $req->file('user_image')->store('public');

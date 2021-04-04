@@ -31,3 +31,4 @@ Route::post('details', 'Users@details');
 
 /**company created**/
 Route::post('createcompany','Companies@save');
+Route::put('updatecompany','Companies@update');

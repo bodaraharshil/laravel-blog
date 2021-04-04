@@ -30,11 +30,21 @@ class Companies extends Controller
     }
     public function update(Request $req)
     {
-        print_r($req->input());
-        echo Company ::where('id',$req->user_id)
-        ->update([
-            'company'=>$req->company
-        ]);
+        $company =  Company::find($req->id);
+        $company->company=$req->company;
+        $company->user_id=$req->user_id;
+        if($company->save())
+        {
+            return response()->json(["message"=>"Company updated successfuly","data"=>$company]);
+        }
+        else
+        {
+            return response()->json(["error"=>"Something went wrong"]);
+        }
+        // echo Company ::where('id',$req->user_id)
+        // ->update([
+        //     'company'=>$req->company
+        // ]);
         // $company1 =  Company::find(user_id)
         // $company1->company=$req->company;
         // $company1->user_id=$req->user_id;

@@ -22,8 +22,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('list','Users@list');
 
+/**user login & signup***/
 Route::post('login', 'Users@login');
 Route::post('register', 'Users@register');
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'Users@details');
 });
+
+/**company created**/
+Route::post('createcompany','Companies@save');

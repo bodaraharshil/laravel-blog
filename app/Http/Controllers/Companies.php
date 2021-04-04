@@ -16,11 +16,17 @@ class Companies extends Controller
     }
     public function save(Request $req)
     {
-        print_r($req->input());
         $company1 = new Company;
         $company1->company=$req->company;
         $company1->user_id=$req->user_id;
-        $company1->save();
+        if($company1->save())
+        {
+            return response()->json(["message"=>"Company created successfuly"]);
+        }
+        else
+        {
+            return response()->json(["error"=>"Something went wrong"]);
+        }
     }
     public function update(Request $req)
     {

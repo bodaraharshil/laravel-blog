@@ -78,3 +78,6 @@ Route::post('formdelete','Companies@delete');
 Route::get('/pdf','PdfMaker@gen');
 
 Route::get('/exportdata','Users@exportdata');
+
+
+

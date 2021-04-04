@@ -1,22 +1,74 @@
 <?php
 
-namespace App\Http\Controllers;
+// namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\User;
-use App\Company;
-use Excel;
-use Maatwebsite\Excel\Concerns\FromCollection;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
+// use App\User;
+// use App\Company;
+// use Excel;
+// use Maatwebsite\Excel\Concerns\FromCollection;
+
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request; 
+use App\Http\Controllers; 
+use App\User; 
+use Illuminate\Support\Facades\Auth; 
+use Validator;
 
 class Users extends Controller
 {
-
+    public $successStatus = 200;
+    public function login(){ 
+        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
+            $user = Auth::user(); 
+            $success['token'] =  $user->createToken('MyApp')-> accessToken; 
+            return response()->json(['success' => $success], $this-> successStatus); 
+        } 
+        else{ 
+            return response()->json(['error'=>'Unauthorised'], 401); 
+        } 
+    }
+/** 
+     * Register api 
+     * 
+     * @return \Illuminate\Http\Response 
+     */ 
+    public function register(Request $request) 
+    { 
+        $validator = Validator::make($request->all(), [ 
+            'name' => 'required', 
+            'email' => 'required|email', 
+            'password' => 'required', 
+            'c_password' => 'required|same:password', 
+        ]);
+if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
+$input = $request->all(); 
+        $input['password'] = bcrypt($input['password']); 
+        $user = User::create($input); 
+        $success['token'] =  $user->createToken('MyApp')-> accessToken; 
+        $success['name'] =  $user->name;
+return response()->json(['success'=>$success], $this-> successStatus); 
+    }
+/** 
+     * details api 
+     * 
+     * @return \Illuminate\Http\Response 
+     */ 
+    public function details() 
+    { 
+        $user = Auth::user(); 
+        return response()->json(['success' => $user], $this-> successStatus); 
+    } 
     function list()
     {
         $userdata =  User::all();
         return response()->json(["message"=>"get data successfuly","data" => $userdata]);
     }
+
     public function index(Request $req)
     {
         // echo $req->file('user_image')->store('public');
@@ -37,7 +89,7 @@ class Users extends Controller
     }
     public function exportdata()
     {   
-        return Excel::download(new DataExport , 'users.xlsx');
+        // return Excel::download(new DataExport , 'users.xlsx');
     }
     public function dbCheck()
     {
@@ -90,9 +142,9 @@ class Users extends Controller
     }
 }
 
-class DataExport implements FromCollection{
-    function collection()
-    {
-        return User::all();
-    }
-}
+// class DataExport implements FromCollection{
+//     function collection()
+//     {
+//         return User::all();
+//     }
+// }

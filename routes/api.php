@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Users;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('list','Users@list');
+
+Route::post('login', 'Users@login');
+Route::post('register', 'Users@register');
+Route::group(['middleware' => 'auth:api'], function(){
+Route::post('details', 'Users@details');
+});

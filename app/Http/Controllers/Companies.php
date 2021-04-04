@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Company;
+use Validator;
 
 class Companies extends Controller
 {
@@ -16,6 +17,16 @@ class Companies extends Controller
     }
     public function save(Request $req)
     {
+        $valid = Validator::make($req->all(),[
+            "company"=>"required",
+
+        ]);
+        if($valid->fails())
+        {
+            return response()->json([
+                'error'=>$valid->errors()
+            ],401);
+        }
         $company1 = new Company;
         $company1->company=$req->company;
         $company1->user_id=$req->user_id;

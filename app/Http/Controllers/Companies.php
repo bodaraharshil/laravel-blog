@@ -19,7 +19,6 @@ class Companies extends Controller
     {
         $valid = Validator::make($req->all(),[
             "company"=>"required",
-
         ]);
         if($valid->fails())
         {
